@@ -15,7 +15,7 @@ public class AutoTests {
         @Test
         void shouldLoginActive () {
             generator.authTest("vasya", "create", "active");
-            open("http://localhost:9999/");
+            open("http://localhost:7777/");
             Configuration.holdBrowserOpen=true;
             $("[name=login]").setValue("vasya");
             $("[name=password]").setValue("create");
@@ -26,7 +26,7 @@ public class AutoTests {
         @Test
         void shouldNotLoginBlocked () {
             generator.authTest("vasya", "create", "blocked");
-            open("http://localhost:9999/");
+            open("http://localhost:7777/");
             Configuration.holdBrowserOpen=true;
             $("[name=login]").setValue("vasya");
             $("[name=password]").setValue("create");
@@ -37,7 +37,7 @@ public class AutoTests {
 
         @Test
         void shouldNotLoginUnregistered () {
-            open("http://localhost:9999/");
+            open("http://localhost:7777/");
             Configuration.holdBrowserOpen=true;
             $("[name=login]").setValue("petya");
             $("[name=password]").setValue("create");
@@ -49,7 +49,7 @@ public class AutoTests {
         @Test
         void shouldErrorActiveWithWrongPass () {
             generator.authTest("vasya", "create", "active");
-            open("http://localhost:9999/");
+            open("http://localhost:7777/");
             Configuration.holdBrowserOpen=true;
             $("[name=login]").setValue("vasya");
             $("[name=password]").setValue("creative");
@@ -61,7 +61,7 @@ public class AutoTests {
         @Test
         void shouldErrorBlockedWithWrongPass () {
             generator.authTest("vasya", "create", "blocked");
-            open("http://localhost:9999/");
+            open("http://localhost:7777/");
             Configuration.holdBrowserOpen=true;
             $("[name=login]").setValue("vasya");
             $("[name=password]").setValue("creative");
