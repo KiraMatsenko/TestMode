@@ -14,11 +14,11 @@ public class AutoTests {
 
         @Test
         void shouldLoginActive () {
-            generator.authTest("vasya", "create", "active");
+            generator.authTest("nadya", "create2", "active");
             open("http://localhost:7777/");
             Configuration.holdBrowserOpen=true;
-            $("[name=login]").setValue("vasya");
-            $("[name=password]").setValue("create");
+            $("[name=login]").setValue("nadya");
+            $("[name=password]").setValue("create2");
             $("button[data-test-id='action-login']").click();
             $x("//h2[contains(text(),'Личный кабинет')]").shouldHave().should(appear);
         }
@@ -32,7 +32,7 @@ public class AutoTests {
             $("[name=password]").setValue("create");
             $("button[data-test-id='action-login']").click();
             $(".notification__title").shouldHave(Condition.text("Ошибка"), Duration.ofSeconds(15)).shouldBe(Condition.visible);
-            $(".notification__content").shouldHave(Condition.text("Ошибка! Неверно указан логин или пароль"), Duration.ofSeconds(15)).shouldBe(Condition.visible);
+            $(".notification__content").shouldHave(Condition.text("Ошибка! Пользователь заблокирован"), Duration.ofSeconds(15)).shouldBe(Condition.visible);
         }
 
         @Test
