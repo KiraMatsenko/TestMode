@@ -32,7 +32,7 @@ public class AutoTests {
             $("[name=password]").setValue("create");
             $("button[data-test-id='action-login']").click();
             $(".notification__title").shouldHave(Condition.text("Ошибка"), Duration.ofSeconds(15)).shouldBe(Condition.visible);
-            $(".notification__content").shouldHave(Condition.text("Ошибка! Пользователь заблокирован"), Duration.ofSeconds(15)).shouldBe(Condition.visible);
+            $(".notification__content").shouldHave(Condition.text("Ошибка! Неверно указан логин или пароль"), Duration.ofSeconds(15)).shouldBe(Condition.visible);
         }
 
         @Test
